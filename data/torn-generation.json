@@ -1,0 +1,94 @@
+{
+  "device": "electrolyser-demo",
+  "unit": 1,
+  "map_revision": "vendor-A-r2",
+  "max_words": 4,
+  "allowed_ranges": {
+    "holding": [
+      [
+        0,
+        3
+      ],
+      [
+        8,
+        10
+      ]
+    ],
+    "input": [
+      [
+        0,
+        2
+      ]
+    ]
+  },
+  "generation": {
+    "area": "holding",
+    "address": 0,
+    "bits": 16
+  },
+  "fields": [
+    {
+      "id": "current",
+      "area": "holding",
+      "address": 1,
+      "words": 2,
+      "type": "float32",
+      "byte_order": "big",
+      "word_order": "little",
+      "scale": "1",
+      "offset": "0"
+    },
+    {
+      "id": "state",
+      "area": "holding",
+      "address": 8,
+      "words": 1,
+      "type": "bits",
+      "lsb": 2,
+      "width": 3,
+      "signed": true,
+      "byte_order": "big",
+      "word_order": "big",
+      "scale": "1",
+      "offset": "0"
+    }
+  ],
+  "max_attempts": 3,
+  "max_sample_duration_ms": 1000,
+  "counter_wrap_min_ms": 100000,
+  "steps": [
+    {
+      "operation": "ReadHolding",
+      "response": {
+        "words": [
+          2
+        ]
+      }
+    },
+    {
+      "operation": "ReadHolding",
+      "response": {
+        "words": [
+          0,
+          17224
+        ]
+      }
+    },
+    {
+      "operation": "ReadHolding",
+      "response": {
+        "words": [
+          20
+        ]
+      }
+    },
+    {
+      "operation": "ReadHolding",
+      "response": {
+        "words": [
+          4
+        ]
+      }
+    }
+  ]
+}
